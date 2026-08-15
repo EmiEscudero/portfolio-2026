@@ -1,13 +1,21 @@
-import { about } from '../data/content'
+import SectionHeader from './SectionHeader'
 
-function About() {
+function About({ paragraphs, section }) {
   return (
-    <section id="about" className="section">
-      <h2>About</h2>
-      <div className="about-text">
-        {about.map((paragraph) => (
-          <p key={paragraph.slice(0, 20)}>{paragraph}</p>
-        ))}
+    <section id="about" className="section section-about">
+      <SectionHeader section={section} />
+      <div className="about-layout">
+        <span className="about-mark" aria-hidden="true">
+          {'{'}
+        </span>
+        <div className="about-copy">
+          {paragraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+        <span className="about-mark about-mark-end" aria-hidden="true">
+          {'}'}
+        </span>
       </div>
     </section>
   )

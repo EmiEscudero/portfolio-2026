@@ -1,14 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4faf3" />
     <meta
       name="description"
-      content="Miguel Emiliano Escudero Saavedra — Computer Systems Engineer working in data science, machine learning, and LLM/GenAI engineering."
+      content="Portfolio of Emiliano Escudero, a Computer Systems Engineer building data science, machine learning, and LLM solutions."
     />
-    <title>Emiliano Escudero — Portfolio</title>
+    <title>Emiliano Escudero — Data &amp; AI Portfolio</title>
+    <script>
+      ;(() => {
+        const root = document.documentElement
+        let theme
+        let language
+
+        try {
+          const storedTheme = window.localStorage.getItem('portfolio-theme')
+          if (storedTheme === 'light' || storedTheme === 'dark') theme = storedTheme
+
+          const storedLanguage = window.localStorage.getItem('portfolio-language')
+          if (storedLanguage === 'en' || storedLanguage === 'es') language = storedLanguage
+        } catch {
+          // System preferences below keep first paint consistent if storage is unavailable.
+        }
+
+        theme ||= window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        language ||= window.navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en'
+
+        root.dataset.theme = theme
+        root.lang = language
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

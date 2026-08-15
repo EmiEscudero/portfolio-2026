@@ -1,12 +1,16 @@
-import { projects } from '../data/content'
+import SectionHeader from './SectionHeader'
 
-function Projects() {
+function Projects({ items, section }) {
   return (
     <section id="projects" className="section">
-      <h2>Projects</h2>
-      <div className="card-grid">
-        {projects.map((project) => (
-          <article key={project.name} className="card">
+      <SectionHeader section={section} />
+      <div className="card-grid project-grid">
+        {items.map((project) => (
+          <article key={project.id} className="card project-card">
+            <div className="project-card-top">
+              <span className="project-number">{project.number}</span>
+              <span className="project-signal" aria-hidden="true" />
+            </div>
             <h3>{project.name}</h3>
             <p>{project.description}</p>
             <ul className="tag-list">

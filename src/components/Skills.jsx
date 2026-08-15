@@ -1,19 +1,20 @@
-import { skills } from '../data/content'
+import SectionHeader from './SectionHeader'
 
-function Skills() {
+function Skills({ items, section }) {
   return (
     <section id="skills" className="section">
-      <h2>Skills</h2>
-      <div className="card-grid">
-        {skills.map((group) => (
-          <div key={group.category} className="card">
+      <SectionHeader section={section} />
+      <div className="card-grid skill-grid">
+        {items.map((group, index) => (
+          <article key={group.id} className="card skill-card">
+            <span className="skill-index">{String(index + 1).padStart(2, '0')}</span>
             <h3>{group.category}</h3>
             <ul className="tag-list">
               {group.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-          </div>
+          </article>
         ))}
       </div>
     </section>

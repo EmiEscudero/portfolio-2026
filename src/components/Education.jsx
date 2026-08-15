@@ -1,27 +1,37 @@
-import { certifications, education } from '../data/content'
+import SectionHeader from './SectionHeader'
 
-function Education() {
+function Education({ certifications, items, section }) {
   return (
     <section id="education" className="section">
-      <h2>Education</h2>
-      <ul className="plain-list">
-        {education.map((item) => (
-          <li key={item.program}>
-            <div className="list-row">
-              <strong>{item.program}</strong>
-              <span className="card-dates">{item.dates}</span>
-            </div>
-            <p className="card-subtitle">{item.school}</p>
-          </li>
-        ))}
-      </ul>
+      <SectionHeader section={section} />
+      <div className="education-layout">
+        <ol className="education-list">
+          {items.map((item, index) => (
+            <li key={item.id}>
+              <span className="education-index">{String(index + 1).padStart(2, '0')}</span>
+              <div className="education-content">
+                <div className="list-row">
+                  <h3>{item.program}</h3>
+                  <span className="card-dates">{item.dates}</span>
+                </div>
+                <p className="card-subtitle">{item.school}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
 
-      <h3 className="subsection-heading">Certifications</h3>
-      <ul className="plain-list">
-        {certifications.map((cert) => (
-          <li key={cert}>{cert}</li>
-        ))}
-      </ul>
+        <aside className="certification-panel">
+          <p className="certification-label">{section.certificationsTitle}</p>
+          <ul>
+            {certifications.map((cert) => (
+              <li key={cert.id}>
+                <span aria-hidden="true">↗</span>
+                {cert.name}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </div>
     </section>
   )
 }
