@@ -1,27 +1,124 @@
+const linkedinUrl = 'https://www.linkedin.com/in/emiliano-escudero'
+const githubUrl = 'https://github.com/EmiEscudero'
+const youtubeUrl = 'https://www.youtube.com/@Emiliano-Escudero'
+const x_Url = 'https://x.com/MikeEmilianoES/with_replies'
+const twitchUrl = 'https://www.twitch.tv/mikeemiliano__'
+const duolingoUrl = 'https://www.duolingo.com/profile/EmiEscudero'
+
+const sharedSocials = [
+  { id: 'linkedin', label: 'LinkedIn', href: linkedinUrl },
+  { id: 'github', label: 'GitHub', href: githubUrl },
+  { id: 'youtube', label: 'YouTube', href: youtubeUrl },
+  { id: 'x', label: 'X', href: x_Url },
+  { id: 'twitch', label: 'Twitch', href: twitchUrl },
+  { id: 'duolingo', label: 'Duolingo', href: duolingoUrl },
+]
+
 const sharedProfile = {
   name: 'Miguel Emiliano Escudero Saavedra',
   shortName: 'Emiliano Escudero',
   nameLines: ['Miguel Emiliano', 'Escudero Saavedra'],
   location: 'Mexico',
   email: 'escudero.emiliano.u@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/emiliano-escudero',
+  linkedin: linkedinUrl,
+  socials: sharedSocials,
 }
 
 const sharedStacks = {
-  energyChatbot: ['Python', 'Llama 3', 'Ollama', 'SQL Server', 'Streamlit', 'Prompt Engineering'],
-  energyChatbotEs: [
-    'Python',
-    'Llama 3',
-    'Ollama',
-    'SQL Server',
-    'Streamlit',
-    'Ingeniería de prompts',
+  energyChatbot: [
+    { id: 'python', label: 'Python' },
+    { id: 'llama-3', label: 'Llama 3' },
+    { id: 'ollama', label: 'Ollama' },
+    { id: 'sql-server', label: 'SQL Server' },
+    { id: 'streamlit', label: 'Streamlit' },
+    { id: 'prompt-engineering', label: 'Prompt Engineering' },
   ],
-  portfolio: ['React', 'Vite', 'HTML/CSS', 'Vercel'],
+  energyChatbotEs: [
+    { id: 'python', label: 'Python' },
+    { id: 'llama-3', label: 'Llama 3' },
+    { id: 'ollama', label: 'Ollama' },
+    { id: 'sql-server', label: 'SQL Server' },
+    { id: 'streamlit', label: 'Streamlit' },
+    { id: 'prompt-engineering', label: 'Ingeniería de prompts' },
+  ],
+  portfolio: [
+    { id: 'react', label: 'React' },
+    { id: 'vite', label: 'Vite' },
+    { id: 'html-css', label: 'HTML/CSS' },
+    { id: 'vercel', label: 'Vercel' },
+  ],
 }
+
+const sharedSkillItems = {
+  dataMl: [
+    { id: 'python', label: 'Python' },
+    { id: 'scikit-learn', label: 'scikit-learn' },
+    { id: 'pyspark', label: 'PySpark' },
+    { id: 'databricks', label: 'Databricks' },
+    { id: 'hadoop', label: 'Hadoop' },
+    { id: 'cnns', label: 'CNNs' },
+    { id: 'nlp', label: 'NLP' },
+  ],
+  dataStorage: [
+    { id: 'sql', label: 'SQL' },
+    { id: 'nosql', label: 'NoSQL' },
+    { id: 'sql-server', label: 'SQL Server' },
+  ],
+  llm: [
+    { id: 'ollama', label: 'Ollama' },
+    { id: 'llama-3', label: 'Llama 3' },
+    { id: 'prompt-engineering', label: 'Prompt Engineering' },
+    { id: 'streamlit', label: 'Streamlit' },
+  ],
+  llmEs: [
+    { id: 'ollama', label: 'Ollama' },
+    { id: 'llama-3', label: 'Llama 3' },
+    { id: 'prompt-engineering', label: 'Ingeniería de prompts' },
+    { id: 'streamlit', label: 'Streamlit' },
+  ],
+  web: [
+    { id: 'javascript', label: 'JavaScript' },
+    { id: 'typescript', label: 'TypeScript' },
+    { id: 'react', label: 'React' },
+    { id: 'html-css', label: 'HTML/CSS' },
+    { id: 'java', label: 'Java' },
+  ],
+}
+
+const sharedMatrixRainWords = [
+  'PYTHON',
+  'SQL',
+  'NOSQL',
+  'LLAMA 3',
+  'OLLAMA',
+  'STREAMLIT',
+  'REACT',
+  'VITE',
+  'VERCEL',
+  'PYSPARK',
+  'HADOOP',
+  'DATABRICKS',
+  'SCIKIT-LEARN',
+  'JAVASCRIPT',
+  'TYPESCRIPT',
+  'JAVA',
+  'HTML/CSS',
+  'DATA',
+  'ML',
+  'LLM',
+  'GENAI',
+  'NLP',
+  'CNNS',
+  'PIPELINES',
+  'PROMPTS',
+  'LOCAL-FIRST',
+  'CLOUD-READY',
+  'ANALYTICS',
+]
 
 export const portfolioContent = {
   en: {
+    matrixRainWords: sharedMatrixRainWords,
     meta: {
       title: 'Emiliano Escudero — Data & AI Portfolio',
       description:
@@ -34,12 +131,12 @@ export const portfolioContent = {
       closeMenu: 'Close navigation menu',
       languageToSpanish: 'Switch language to Spanish',
       languageToEnglish: 'Switch language to English',
-      themeToDark: 'Switch to black theme',
+      themeToDark: 'Switch to dark theme',
       themeToLight: 'Switch to light theme',
       english: 'EN',
       spanish: 'ES',
       light: 'Light',
-      dark: 'Black',
+      dark: 'Dark',
     },
     profile: {
       ...sharedProfile,
@@ -50,8 +147,6 @@ export const portfolioContent = {
     },
     hero: {
       eyebrow: 'Data & Applied AI',
-      emailAction: 'Email me',
-      linkedinAction: 'LinkedIn',
       projectsAction: 'Explore my work',
       panelLabel: 'Profile snapshot',
       panelFile: 'emiliano.config',
@@ -136,28 +231,33 @@ export const portfolioContent = {
         description:
           'A single-page experience built with Vite and React, deployed on Vercel. Content stays separate from presentation, making the interface easy to evolve without tangling copy and layout.',
         stack: sharedStacks.portfolio,
+        repository: {
+          label: 'View on GitHub',
+          ariaLabel: 'View this project on GitHub — opens in a new tab',
+          href: `${githubUrl}/portfolio-2026`,
+        },
       },
     ],
     skills: [
       {
         id: 'data-ml',
         category: 'Data & ML',
-        items: ['Python', 'scikit-learn', 'PySpark', 'Databricks', 'Hadoop', 'CNNs', 'NLP'],
+        items: sharedSkillItems.dataMl,
       },
       {
         id: 'data-storage',
         category: 'Data Storage',
-        items: ['SQL', 'NoSQL', 'SQL Server'],
+        items: sharedSkillItems.dataStorage,
       },
       {
         id: 'llm-tooling',
         category: 'LLM Tooling',
-        items: ['Ollama', 'Llama 3', 'Prompt Engineering', 'Streamlit'],
+        items: sharedSkillItems.llm,
       },
       {
         id: 'web',
         category: 'Web · In progress',
-        items: ['JavaScript', 'TypeScript', 'React', 'HTML/CSS', 'Java'],
+        items: sharedSkillItems.web,
       },
     ],
     education: [
@@ -202,11 +302,17 @@ export const portfolioContent = {
     contact: {
       body: 'I am open to roles in data science, machine learning, and LLM/GenAI engineering. If my experience fits what you are building, I would be glad to hear about it.',
       emailAction: 'Send an email',
-      linkedinAction: 'Connect on LinkedIn',
+      copyEmailAction: 'Copy email address',
+      copyEmailSuccess: 'Email address copied',
+      copyEmailError: 'The email address could not be copied. Please select and copy it manually.',
+      socialTitle: 'Social media',
+      socialUnavailable: 'Profile link pending',
+      opensNewTab: 'opens in a new tab',
     },
     footer: {
       note: 'Designed and built with React, curiosity, and a lot of green.',
       backToTop: 'Back to top',
+      easterEggLabel: 'Twenty One Pilots fan',
     },
     navLinks: [
       { href: '#about', label: 'About' },
@@ -218,6 +324,7 @@ export const portfolioContent = {
     ],
   },
   es: {
+    matrixRainWords: sharedMatrixRainWords,
     meta: {
       title: 'Emiliano Escudero — Portafolio de Datos e IA',
       description:
@@ -230,12 +337,12 @@ export const portfolioContent = {
       closeMenu: 'Cerrar menú de navegación',
       languageToSpanish: 'Cambiar idioma a español',
       languageToEnglish: 'Cambiar idioma a inglés',
-      themeToDark: 'Cambiar al tema negro',
+      themeToDark: 'Cambiar al tema oscuro',
       themeToLight: 'Cambiar al tema claro',
       english: 'EN',
       spanish: 'ES',
       light: 'Claro',
-      dark: 'Negro',
+      dark: 'Oscuro',
     },
     profile: {
       ...sharedProfile,
@@ -246,8 +353,6 @@ export const portfolioContent = {
     },
     hero: {
       eyebrow: 'Datos e IA aplicada',
-      emailAction: 'Escríbeme',
-      linkedinAction: 'LinkedIn',
       projectsAction: 'Explora mi trabajo',
       panelLabel: 'Resumen del perfil',
       panelFile: 'emiliano.config',
@@ -332,28 +437,33 @@ export const portfolioContent = {
         description:
           'Una experiencia de una sola página construida con Vite y React, desplegada en Vercel. El contenido está separado de la presentación para que la interfaz pueda evolucionar sin mezclar el contenido y el diseño.',
         stack: sharedStacks.portfolio,
+        repository: {
+          label: 'Ver en GitHub',
+          ariaLabel: 'Ver este proyecto en GitHub — se abre en una pestaña nueva',
+          href: `${githubUrl}/portfolio-2026`,
+        },
       },
     ],
     skills: [
       {
         id: 'data-ml',
         category: 'Datos y ML',
-        items: ['Python', 'scikit-learn', 'PySpark', 'Databricks', 'Hadoop', 'CNNs', 'NLP'],
+        items: sharedSkillItems.dataMl,
       },
       {
         id: 'data-storage',
         category: 'Almacenamiento de datos',
-        items: ['SQL', 'NoSQL', 'SQL Server'],
+        items: sharedSkillItems.dataStorage,
       },
       {
         id: 'llm-tooling',
         category: 'Herramientas para LLM',
-        items: ['Ollama', 'Llama 3', 'Ingeniería de prompts', 'Streamlit'],
+        items: sharedSkillItems.llmEs,
       },
       {
         id: 'web',
         category: 'Web · En progreso',
-        items: ['JavaScript', 'TypeScript', 'React', 'HTML/CSS', 'Java'],
+        items: sharedSkillItems.web,
       },
     ],
     education: [
@@ -398,11 +508,17 @@ export const portfolioContent = {
     contact: {
       body: 'Estoy abierto a oportunidades en ciencia de datos, machine learning e ingeniería de LLM o IA generativa. Si mi experiencia encaja con lo que estás construyendo, me encantará conocer el proyecto.',
       emailAction: 'Enviar un correo',
-      linkedinAction: 'Conectar en LinkedIn',
+      copyEmailAction: 'Copiar dirección de correo',
+      copyEmailSuccess: 'Dirección de correo copiada',
+      copyEmailError: 'No se pudo copiar la dirección. Selecciónala y cópiala manualmente.',
+      socialTitle: 'Redes sociales',
+      socialUnavailable: 'Enlace de perfil pendiente',
+      opensNewTab: 'se abre en una pestaña nueva',
     },
     footer: {
       note: 'Diseñado y construido con React, curiosidad y mucho verde.',
       backToTop: 'Volver arriba',
+      easterEggLabel: 'Fan de Twenty One Pilots',
     },
     navLinks: [
       { href: '#about', label: 'Perfil' },

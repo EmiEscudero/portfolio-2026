@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { LuMoon, LuSun } from 'react-icons/lu'
 
 function Nav({
   controls,
@@ -41,9 +42,7 @@ function Nav({
           aria-label={profile.shortName}
           onClick={() => setOpen(false)}
         >
-          <span className="brand-mark" aria-hidden="true">
-            EE
-          </span>
+          <img className="brand-mark" src="/favicon.svg" alt="" aria-hidden="true" />
           <span className="brand-name">{profile.shortName}</span>
         </a>
 
@@ -92,13 +91,15 @@ function Nav({
               onClick={onThemeToggle}
             >
               <span className={theme === 'light' ? 'toggle-choice toggle-choice-active' : 'toggle-choice'}>
-                {controls.light}
+                <LuSun className="toggle-choice-icon" aria-hidden="true" focusable="false" />
+                <span className="toggle-choice-label">{controls.light}</span>
               </span>
               <span className="toggle-divider" aria-hidden="true">
                 /
               </span>
               <span className={theme === 'dark' ? 'toggle-choice toggle-choice-active' : 'toggle-choice'}>
-                {controls.dark}
+                <LuMoon className="toggle-choice-icon" aria-hidden="true" focusable="false" />
+                <span className="toggle-choice-label">{controls.dark}</span>
               </span>
             </button>
           </div>

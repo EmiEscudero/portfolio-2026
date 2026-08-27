@@ -105,6 +105,43 @@ body::before {
   content: '';
 }
 
+/* Ambient portfolio word rain */
+
+.matrix-rain {
+  position: fixed;
+  z-index: 0;
+  inset: var(--nav-height) 0 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.matrix-rain-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: max(0px, calc((100vw - var(--max-width)) / 2 - 24px));
+  overflow: hidden;
+}
+
+.matrix-rain-rail-left {
+  left: 0;
+  -webkit-mask-image: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.88) 58%, transparent 100%);
+  mask-image: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.88) 58%, transparent 100%);
+}
+
+.matrix-rain-rail-right {
+  right: 0;
+  -webkit-mask-image: linear-gradient(to left, black 0%, rgba(0, 0, 0, 0.88) 58%, transparent 100%);
+  mask-image: linear-gradient(to left, black 0%, rgba(0, 0, 0, 0.88) 58%, transparent 100%);
+}
+
+.matrix-rain canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 #root {
   position: relative;
   isolation: isolate;
@@ -141,6 +178,18 @@ button {
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 4px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 h1,
@@ -296,22 +345,17 @@ main:focus {
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
   width: 38px;
   height: 38px;
-  color: var(--on-lime);
-  background: var(--lime);
-  border: 1px solid var(--lime);
   border-radius: 11px;
   box-shadow: 0 0 0 5px var(--accent-soft);
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  font-weight: 800;
-  place-items: center;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .nav-brand:hover .brand-mark {
   transform: rotate(-4deg);
+  box-shadow: 0 0 0 5px var(--accent-soft), 0 8px 22px rgba(7, 16, 10, 0.2);
 }
 
 .nav-links {
@@ -384,9 +428,18 @@ main:focus {
 }
 
 .toggle-choice {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
   padding: 5px 6px;
   border-radius: 7px;
   white-space: nowrap;
+}
+
+.toggle-choice-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
 }
 
 .toggle-choice-active {
@@ -1025,15 +1078,63 @@ main:focus {
   margin-top: auto;
 }
 
+.project-meta {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+  margin-top: auto;
+}
+
+.project-meta .tag-list {
+  margin-top: 0;
+}
+
+.project-repository-link {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 44px;
+  padding: 9px 14px;
+  color: var(--text-h);
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 750;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.project-repository-link:hover {
+  color: var(--on-lime);
+  background: var(--lime);
+  border-color: var(--lime);
+  box-shadow: 0 10px 24px var(--ambient-two);
+  transform: translateY(-2px);
+}
+
 .tag-list li {
-  padding: 6px 10px;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 7px 11px;
   color: var(--text);
   background: var(--bg-alt);
   border: 1px solid var(--border);
   border-radius: 999px;
   font-family: var(--mono);
-  font-size: 0.67rem;
+  font-size: 0.72rem;
   line-height: 1.35;
+}
+
+.technology-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  color: var(--accent);
 }
 
 .skill-card {
@@ -1192,13 +1293,25 @@ main:focus {
   justify-content: flex-end;
 }
 
-.contact-actions .button-primary {
-  max-width: 100%;
-  padding: 13px 18px 13px 22px;
-  border-radius: 18px;
+.contact-connect {
+  display: grid;
+  gap: 24px;
+  justify-items: end;
+  min-width: 0;
 }
 
-.contact-actions .button-primary > span:first-child {
+.email-action-group {
+  display: flex;
+  min-width: 0;
+}
+
+.contact-actions .email-link {
+  max-width: 100%;
+  padding: 13px 18px 13px 22px;
+  border-radius: 18px 0 0 18px;
+}
+
+.contact-actions .email-link > span:first-child {
   display: grid;
   gap: 2px;
   min-width: 0;
@@ -1212,6 +1325,96 @@ main:focus {
   letter-spacing: 0.08em;
   opacity: 0.72;
   text-transform: uppercase;
+}
+
+.copy-email-button {
+  display: inline-grid;
+  width: 50px;
+  min-height: 50px;
+  flex: 0 0 50px;
+  place-items: center;
+  padding: 0;
+  color: var(--on-lime);
+  background: var(--lime);
+  border: 1px solid var(--lime);
+  border-left-color: rgba(7, 19, 11, 0.22);
+  border-radius: 0 18px 18px 0;
+  box-shadow: 0 12px 32px var(--ambient-two);
+  cursor: pointer;
+}
+
+.copy-email-button svg {
+  width: 1.08rem;
+  height: 1.08rem;
+}
+
+.copy-email-button:hover {
+  background: var(--lime-hover);
+  border-color: var(--lime-hover);
+  border-left-color: rgba(7, 19, 11, 0.22);
+  box-shadow: 0 16px 38px var(--ambient-two);
+  transform: translateY(-2px);
+}
+
+.social-media {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+}
+
+.social-media-title {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.social-link {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 9px 13px;
+  color: var(--text-h);
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.social-link[href]:hover {
+  color: var(--on-lime);
+  background: var(--lime);
+  border-color: var(--lime);
+  box-shadow: 0 10px 24px var(--ambient-two);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
+.social-link-unavailable {
+  color: var(--muted);
+  cursor: default;
+  opacity: 0.62;
 }
 
 .footer {
@@ -1234,6 +1437,43 @@ main:focus {
 
 .footer-inner p {
   margin: 0;
+}
+
+.footer-signature {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer-easter-egg {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  font-weight: 900;
+  letter-spacing: -0.18em;
+  line-height: 1;
+  opacity: 0.45;
+  transform: rotate(-5deg);
+  transition:
+    color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.footer-easter-egg span:first-child {
+  color: #ef3340;
+}
+
+.footer-easter-egg span:last-child {
+  color: #16a8d4;
+}
+
+.footer-easter-egg:hover {
+  color: var(--text-h);
+  opacity: 1;
+  transform: rotate(0) scale(1.08);
 }
 
 .footer-inner p:nth-child(2) {
@@ -1346,6 +1586,15 @@ main:focus {
   }
 
   .contact-actions {
+    justify-content: flex-start;
+  }
+
+  .contact-connect,
+  .social-media {
+    justify-items: start;
+  }
+
+  .social-list {
     justify-content: flex-start;
   }
 
@@ -1489,7 +1738,13 @@ main:focus {
     width: 100%;
   }
 
-  .contact-actions .button-primary {
+  .email-action-group {
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) 50px;
+  }
+
+  .contact-actions .email-link {
     justify-content: space-between;
     overflow-wrap: anywhere;
   }
@@ -1505,6 +1760,10 @@ main:focus {
   .preference-toggle {
     padding: 3px;
     letter-spacing: 0;
+  }
+
+  .theme-toggle .toggle-choice-label {
+    display: none;
   }
 
   .hero-actions .button {
@@ -1563,7 +1822,23 @@ main:focus {
   .hero-console,
   .card:hover,
   .button:hover,
-  .preference-toggle:hover {
+  .preference-toggle:hover,
+  .copy-email-button:hover,
+  .social-link[href]:hover,
+  .project-repository-link:hover,
+  .footer-easter-egg:hover {
     transform: none;
+  }
+}
+
+@media (max-width: 1359px), (prefers-reduced-motion: reduce), (forced-colors: active) {
+  .matrix-rain {
+    display: none;
+  }
+}
+
+@media print {
+  .matrix-rain {
+    display: none;
   }
 }

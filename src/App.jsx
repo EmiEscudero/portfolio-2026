@@ -8,6 +8,7 @@ import Skills from './components/Skills'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import AmbientWordRain from './components/AmbientWordRain'
 import { portfolioContent } from './data/content'
 
 const LANGUAGE_STORAGE_KEY = 'portfolio-language'
@@ -79,6 +80,7 @@ function App() {
       <a className="skip-link" href="#main-content">
         {content.controls.skipLink}
       </a>
+      <AmbientWordRain theme={theme} words={content.matrixRainWords} />
       <Nav
         controls={content.controls}
         language={language}

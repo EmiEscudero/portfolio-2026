@@ -18,22 +18,9 @@ function Hero({ hero, profile }) {
           </h1>
           <p className="hero-tagline">{profile.tagline}</p>
           <div className="hero-actions">
-            <a className="button button-primary" href={`mailto:${profile.email}`}>
-              {hero.emailAction}
-              <span aria-hidden="true">↗</span>
-            </a>
-            <a className="button button-secondary" href="#projects">
+            <a className="button button-primary" href="#projects">
               {hero.projectsAction}
               <span aria-hidden="true">↓</span>
-            </a>
-            <a
-              className="button button-quiet"
-              href={profile.linkedin}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {hero.linkedinAction}
-              <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>

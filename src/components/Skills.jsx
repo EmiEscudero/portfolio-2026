@@ -1,4 +1,5 @@
 import SectionHeader from './SectionHeader'
+import { TechnologyIcon } from './Icons'
 
 function Skills({ items, section }) {
   return (
@@ -11,7 +12,10 @@ function Skills({ items, section }) {
             <h3>{group.category}</h3>
             <ul className="tag-list">
               {group.items.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item.id}>
+                  <TechnologyIcon id={item.id} />
+                  <span>{item.label}</span>
+                </li>
               ))}
             </ul>
           </article>
