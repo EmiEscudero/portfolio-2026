@@ -5,6 +5,19 @@ const x_Url = 'https://x.com/MikeEmilianoES/with_replies'
 const twitchUrl = 'https://www.twitch.tv/mikeemiliano__'
 const duolingoUrl = 'https://www.duolingo.com/profile/EmiEscudero'
 
+const sharedPortraits = [
+  {
+    id: 'profile-pic-1',
+    src: '/images/profile/profile-pic1.png',
+    position: '50% 50%',
+  },
+  {
+    id: 'matrix-pic',
+    src: '/images/profile/matrix-pic.png',
+    position: '50% 50%',
+  },
+]
+
 const sharedSocials = [
   { id: 'linkedin', label: 'LinkedIn', href: linkedinUrl },
   { id: 'github', label: 'GitHub', href: githubUrl },
@@ -21,6 +34,7 @@ const sharedProfile = {
   location: 'Mexico',
   email: 'escudero.emiliano.u@gmail.com',
   linkedin: linkedinUrl,
+  portraits: sharedPortraits,
   socials: sharedSocials,
 }
 
@@ -144,6 +158,11 @@ export const portfolioContent = {
       tagline:
         'I turn complex data into practical products—from machine learning pipelines to locally deployed language models.',
       availability: 'Available for new opportunities',
+      portraitLabel: 'Portrait of Emiliano Escudero',
+      portraitControlsLabel: 'Choose a profile picture',
+      portraitPauseLabel: 'Pause profile picture rotation',
+      portraitResumeLabel: 'Resume profile picture rotation',
+      portraitSelectLabel: 'Show profile picture',
     },
     hero: {
       eyebrow: 'Data & Applied AI',
@@ -350,6 +369,11 @@ export const portfolioContent = {
       tagline:
         'Convierto datos complejos en productos prácticos: desde pipelines de machine learning hasta modelos de lenguaje desplegados localmente.',
       availability: 'Disponible para nuevas oportunidades',
+      portraitLabel: 'Retrato de Emiliano Escudero',
+      portraitControlsLabel: 'Elegir una foto de perfil',
+      portraitPauseLabel: 'Pausar el cambio de fotos de perfil',
+      portraitResumeLabel: 'Reanudar el cambio de fotos de perfil',
+      portraitSelectLabel: 'Mostrar foto de perfil',
     },
     hero: {
       eyebrow: 'Datos e IA aplicada',

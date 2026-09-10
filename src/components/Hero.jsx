@@ -1,3 +1,5 @@
+import ProfilePhotoRotator from './ProfilePhotoRotator'
+
 function Hero({ hero, profile }) {
   return (
     <section id="top" className="hero" aria-labelledby="hero-title">
@@ -35,29 +37,30 @@ function Hero({ hero, profile }) {
             <span>{hero.panelFile}</span>
             <span className="console-connection" aria-hidden="true" />
           </div>
-          <div className="console-body">
-            <p className="console-comment">{hero.panelComment}</p>
-            <dl className="console-signals">
-              {hero.signals.map((signal) => (
-                <div key={signal.id} className="console-row">
-                  <dt>{signal.label}</dt>
-                  <dd>
-                    {signal.active && <span className="console-live-dot" aria-hidden="true" />}
-                    {signal.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            <div className="signal-bars" aria-hidden="true">
-              {[34, 58, 46, 76, 64, 88, 54, 72, 94, 66, 82, 100].map((height, index) => (
-                <span key={`${height}-${index}`} style={{ '--signal-height': `${height}%` }} />
-              ))}
+          <ProfilePhotoRotator
+            controlsLabel={profile.portraitControlsLabel}
+            imageLabel={profile.portraitLabel}
+            images={profile.portraits}
+            pauseLabel={profile.portraitPauseLabel}
+            resumeLabel={profile.portraitResumeLabel}
+            selectLabel={profile.portraitSelectLabel}
+          >
+            <div className="portrait-console-overlay">
+              <p className="console-comment">{hero.panelComment}</p>
+              <dl className="portrait-signals">
+                {hero.signals.map((signal) => (
+                  <div key={signal.id} className="console-row">
+                    <dt>{signal.label}</dt>
+                    <dd>
+                      {signal.active && <span className="console-live-dot" aria-hidden="true" />}
+                      {signal.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="portrait-console-footer">{hero.panelFooter}</p>
             </div>
-            <p className="console-footer">
-              <span>01</span>
-              {hero.panelFooter}
-            </p>
-          </div>
+          </ProfilePhotoRotator>
         </aside>
       </div>
 
