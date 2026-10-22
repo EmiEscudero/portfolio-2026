@@ -260,7 +260,7 @@ export const portfolioContent = {
       },
     },
     about: [
-      "I'm a Computer Systems Engineer from Zacatepec, Mexico, focused on data science and applied machine learning. I build systems that turn raw data into something useful: convolutional neural networks for image classification, SQL and NoSQL pipelines for structured data, and large language models running locally or in the cloud.",
+      "I'm a Computer Systems Engineer from Mexico, focused on data science and applied machine learning. I build systems that turn raw data into something useful: convolutional neural networks for image classification, SQL and NoSQL pipelines for structured data, and large language models running locally or in the cloud.",
       "At INEEL, I researched and deployed Llama 3 through Ollama, then connected it to real energy-sector data instead of a demo dataset. I'm currently looking for new opportunities while broadening my range across JavaScript, React, Java, and TypeScript.",
     ],
     experience: [
@@ -615,7 +615,7 @@ export const portfolioContent = {
       },
     },
     about: [
-      'Soy Ingeniero en Sistemas Computacionales de Zacatepec, México, enfocado en ciencia de datos y machine learning aplicado. Construyo sistemas que convierten datos sin procesar en soluciones útiles: redes neuronales convolucionales para clasificación de imágenes, pipelines SQL y NoSQL para datos estructurados, y modelos de lenguaje ejecutados localmente o en la nube.',
+      'Soy Ingeniero en Sistemas Computacionales de México, enfocado en ciencia de datos y machine learning aplicado. Construyo sistemas que convierten datos sin procesar en soluciones útiles: redes neuronales convolucionales para clasificación de imágenes, pipelines SQL y NoSQL para datos estructurados, y modelos de lenguaje ejecutados localmente o en la nube.',
       'En el INEEL investigué y desplegué Llama 3 con Ollama, y después lo conecté a datos reales del sector energético en lugar de usar un conjunto de demostración. Actualmente busco nuevas oportunidades mientras amplío mi experiencia en JavaScript, React, Java y TypeScript.',
     ],
     experience: [
