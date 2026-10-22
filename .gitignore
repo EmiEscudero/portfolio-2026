@@ -15,6 +15,23 @@ dist-ssr
 # Personal notes for AI assistants, not portfolio content
 CONTEXT_ABOUT_ME/
 
+# Credentials and local environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+/.aws/
+/.ssh/
+
+# Local source attachments, generated documents, and review artifacts
+/.codex-remote-attachments/
+/output/
+/tmp/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
