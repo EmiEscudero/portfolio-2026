@@ -32,7 +32,7 @@ const sharedProfile = {
   shortName: 'Emiliano Escudero',
   nameLines: ['Miguel Emiliano', 'Escudero Saavedra'],
   location: 'Mexico',
-  email: 'escudero.emiliano.ai@gmail.com',
+  email: 'emiliano.escudero.ai@gmail.com',
   linkedin: linkedinUrl,
   portraits: sharedPortraits,
   socials: sharedSocials,
