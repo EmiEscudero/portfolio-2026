@@ -115,6 +115,10 @@ const sharedSkillItems = {
     { id: 'sql', label: 'SQL' },
     { id: 'nosql', label: 'NoSQL' },
     { id: 'sql-server', label: 'SQL Server' },
+    { id: 'mysql', label: 'MySQL' },
+    { id: 'postgresql', label: 'PostgreSQL' },
+    { id: 'mongodb', label: 'MongoDB' },
+    { id: 'neo4j', label: 'Neo4j' },
   ],
   llm: [
     { id: 'ollama', label: 'Ollama' },
