@@ -26,7 +26,18 @@ function Education({ certifications, items, section }) {
             {certifications.map((cert) => (
               <li key={cert.id}>
                 <span aria-hidden="true">↗</span>
-                {cert.name}
+                {cert.href ? (
+                  <a
+                    href={cert.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${cert.name} — ${section.credentialNewTab}`}
+                  >
+                    {cert.name}
+                  </a>
+                ) : (
+                  cert.name
+                )}
               </li>
             ))}
           </ul>
