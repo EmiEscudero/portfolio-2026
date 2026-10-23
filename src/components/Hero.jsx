@@ -24,6 +24,15 @@ function Hero({ hero, profile }) {
               {hero.projectsAction}
               <span aria-hidden="true">↓</span>
             </a>
+            <a
+              className="button button-secondary"
+              href={profile.cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={hero.cvActionLabel}
+            >
+              {hero.cvAction}
+            </a>
           </div>
         </div>
 

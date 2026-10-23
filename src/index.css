@@ -617,6 +617,15 @@ main:focus {
   transform: translateY(-2px);
 }
 
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.button:disabled:hover {
+  transform: none;
+}
+
 .button-primary {
   color: var(--on-lime);
   background: var(--lime);
@@ -639,6 +648,11 @@ main:focus {
 .button-secondary:hover {
   border-color: var(--border-strong);
   box-shadow: var(--shadow-card);
+}
+
+.button-secondary:disabled:hover {
+  border-color: var(--border);
+  box-shadow: none;
 }
 
 .button-quiet {
@@ -1143,6 +1157,8 @@ main:focus {
 
 .experience-list {
   position: relative;
+  display: grid;
+  gap: 24px;
   padding-left: 38px;
 }
 
@@ -1218,7 +1234,37 @@ main:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 58px;
+  margin-bottom: 30px;
+}
+
+.project-context {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.project-contribution {
+  position: relative;
+  z-index: 1;
+  padding-left: 16px;
+  margin-bottom: 28px;
+  border-left: 2px solid var(--border-strong);
+}
+
+.project-contribution h4 {
+  margin-bottom: 8px;
+  color: var(--text-h);
+  font-size: 0.84rem;
+}
+
+.project-contribution p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .project-number,
@@ -1275,6 +1321,16 @@ main:focus {
 
 .project-meta .tag-list {
   margin-top: 0;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-links:empty {
+  display: none;
 }
 
 .project-repository-link {
@@ -1425,6 +1481,16 @@ main:focus {
 .certification-panel li span {
   color: #39ff72;
   font-family: var(--mono);
+}
+
+.certification-panel a {
+  color: inherit;
+  text-underline-offset: 4px;
+  text-decoration-color: currentColor;
+}
+
+.certification-panel a:hover {
+  color: var(--lime);
 }
 
 /* Contact and footer */
