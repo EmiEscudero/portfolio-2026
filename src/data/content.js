@@ -197,6 +197,7 @@ export const portfolioContent = {
     profile: {
       ...sharedProfile,
       title: 'Computer Systems Engineer',
+      cvUrl: '/cv/Emiliano_Escudero_Resume_EN.pdf',
       tagline:
         'I turn complex data into practical products—from machine learning pipelines to locally deployed language models.',
       availability: 'Available for new opportunities',
@@ -209,6 +210,8 @@ export const portfolioContent = {
     hero: {
       eyebrow: 'Data & Applied AI',
       projectsAction: 'Explore my work',
+      cvAction: 'View my CV (PDF)',
+      cvActionLabel: 'View my CV in English (PDF) — opens in a new tab',
       panelLabel: 'Profile snapshot',
       panelFile: 'emiliano.config',
       panelComment: '// turning data into useful systems',
@@ -552,6 +555,7 @@ export const portfolioContent = {
     profile: {
       ...sharedProfile,
       title: 'Ingeniero en Sistemas Computacionales',
+      cvUrl: '/cv/Emiliano_Escudero_Resume_ES.pdf',
       tagline:
         'Convierto datos complejos en productos prácticos: desde pipelines de machine learning hasta modelos de lenguaje desplegados localmente.',
       availability: 'Disponible para nuevas oportunidades',
@@ -564,6 +568,8 @@ export const portfolioContent = {
     hero: {
       eyebrow: 'Datos e IA aplicada',
       projectsAction: 'Explora mi trabajo',
+      cvAction: 'Ver mi CV (PDF)',
+      cvActionLabel: 'Ver mi CV en español (PDF) — se abre en una pestaña nueva',
       panelLabel: 'Resumen del perfil',
       panelFile: 'emiliano.config',
       panelComment: '// convirtiendo datos en sistemas útiles',
