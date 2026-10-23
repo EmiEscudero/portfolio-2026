@@ -1,22 +1,11 @@
 # Portfolio — Emiliano Escudero
 
-Personal portfolio site built with React and Vite. Single-page layout: Hero, About, Experience, Projects, Skills, Education, Contact.
+<!-- portfolio-updated:start -->
+[![This portfolio was updated on September 10, 2026](https://img.shields.io/badge/This%20portfolio%20was%20updated%20on-September%2010%2C%202026-2ea043?style=flat)](https://github.com/EmiEscudero/portfolio-2026/commits/main)
+<!-- portfolio-updated:end -->
 
-## Development
+Personal portfolio of Emiliano Escudero, a Computer Systems Engineer focused on data science, machine learning, and applied AI.
 
-```bash
-npm install
-npm run dev
-```
+Explore my background, professional experience, selected projects, technical skills, education, certifications, and contact links.
 
-## Content
-
-All copy lives in `src/data/content.js` — edit that file to update text without touching component code.
-
-## Build
-
-```bash
-npm run build
-```
-
-Outputs static files to `dist/`, ready to deploy (e.g. to Vercel).
+Built with React and Vite, with English and Spanish content, light and dark themes, and a responsive layout. Hosted on Vercel.

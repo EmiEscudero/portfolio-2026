@@ -1,0 +1,67 @@
+name: Update portfolio date
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - README.md
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portfolio-readme-date
+  cancel-in-progress: false
+
+jobs:
+  update-readme:
+    if: github.ref == 'refs/heads/main' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: main
+
+      - name: Refresh the last-updated badge
+        run: |
+          node --input-type=module <<'NODE'
+          import { execFileSync } from 'node:child_process'
+          import { readFileSync, writeFileSync } from 'node:fs'
+
+          const timestamp = execFileSync('git', ['log', '-1', '--format=%cI'], {
+            encoding: 'utf8',
+          }).trim()
+          const date = new Intl.DateTimeFormat('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            timeZone: 'America/Mexico_City',
+          }).format(new Date(timestamp))
+          const label = 'This portfolio was updated on'
+          const badgeUrl = `https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(date)}-2ea043?style=flat`
+          const badge = `[![${label} ${date}](${badgeUrl})](https://github.com/EmiEscudero/portfolio-2026/commits/main)`
+          const marker = /<!-- portfolio-updated:start -->[\s\S]*?<!-- portfolio-updated:end -->/
+          const readme = readFileSync('README.md', 'utf8')
+
+          if (!marker.test(readme)) {
+            throw new Error('README.md is missing the portfolio update markers')
+          }
+
+          writeFileSync('README.md', readme.replace(marker, [
+            '<!-- portfolio-updated:start -->',
+            badge,
+            '<!-- portfolio-updated:end -->',
+          ].join('\n')))
+          NODE
+
+      - name: Save the updated date when it changes
+        run: |
+          if git diff --quiet -- README.md; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m 'docs: refresh portfolio update date'
+          git push origin HEAD:main
